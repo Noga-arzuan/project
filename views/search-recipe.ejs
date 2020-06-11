@@ -1,0 +1,32 @@
+<%- include ('partials/header.ejs'); -%>
+<div class="container">
+        <% if (message != '') { %>
+            <p class="text-center text-danger"><%= message %></p>
+        <% } %>
+        <form class="search-recipe-form" action="" method="post" enctype="multipart/form-data">
+            <div class="form-row">
+                
+                 <div class="form-group col-md-4">
+                    <input type="text" class="form-control" name="id_recipe" id="id_recipe" placeholder="id_recipe" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <input type="text" class="form-control" name="id_product" id="id_product" placeholder="id_product" required>
+                </div>
+               
+            </div>
+            <div class="form-row">
+                <
+                <div class="form-group col-md-6">
+                    <select id="id_product" name="position" class="form-control" required>
+                        <option selected disabled>id_product</option>
+                       
+                   
+                </div>
+              
+            </div>
+            <button type="submit" class="btn btn-primary float-right">Aearch recipe</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

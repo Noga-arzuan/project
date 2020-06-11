@@ -1,0 +1,47 @@
+<%- include ('partials/header.ejs'); -%>
+<div class="container">
+    <% if (message) { %>
+        <p class="text-center text-danger"><%= message %></p>
+    <% } %>
+
+    <% if (recipe) { %>
+        <form class="add-recipe-form" action="" method="post" enctype="multipart/form-data">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="product-name">product name</label>
+                    <input type="text" class="form-control" name="product-name" id="product-name" value="<%= recipe.pame %>" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="kind">kind</label>
+                    <input type="text" class="form-control" name="kind" id="kind" value="<%= recipe.kind %>" required>
+                </div>
+                
+                </div>
+            </div>
+            <div class="form-row">
+                
+                <div class="form-group col-md-6">
+                    <label for="Food preferences">Food preferences</label>
+                    <select id="Food preferences" name="Food preferences" class="form-control" required>
+                        <option selected><%= recipe.Food_preferences %></option>
+                        <option>Vegetarian</option>
+                        <option>Vegan</option>
+                        <option>Omnivorous</option>
+                        <option>Pareve</option>
+                      
+                    </select>
+                </div>
+                  <div class="col-md-12">
+                    <label for="recipe-img"><b>Recipe Image</b></label><br>
+                    <input type="file" name="image" id="recipe-img" class="" required>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-success float-right">Update recipe/button>
+        </form>
+    <% } else { %>
+        <p class="text-center">recipe Not Found. Go <a href="/add">here</a> to add recipe.</p>
+    <% } %>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<%- include("partials/header") -%>
+    <div class="table-wrapper">
+         <% if (recipe_.length > 0) {%>
+            <table class="table table-hovered">
+                <thead class="p-3 mb-2 bg-secondary text-white">
+                    <tr>
+                        <th scope="col">ID</th>
+                  
+                        <th scope="col">שם המתכון</th>
+                        <th scope="col">הוראות הכנה</th>
+                        <th scope="col">מרכיב עיקרי</th>
+                        <th scope="col">תמונה</th>
+                     
+                
+                    </tr>
+                </thead>
+                <tbody>
+                    <% recipe_.forEach((recipe, index) => { %>
+                      <tr>
+                          <th scope="row"><%= recipe.id %></th>
+                
+
+                            <td><%= recipe.name %></td>
+                            <td><%= recipe.kind %></td>
+                            <td><%= recipe.product_1 %></td>
+                          <td><img src="/assets/img/<%= recipe.image %>" class="rounded-circle recipe-img" alt=""></td>
+
+                            <td>
+                                <a href="/edit/<%= recipe.id %>" target="_blank" rel="noopener" class="btn btn-sm btn-secondary">Edit</a>
+                                <a href="/delete/<%= recipe.id %>" class="btn btn-sm btn-danger">Delete</a>
+                                  <a href="/search/<%= recipe.id %>" target="_blank" rel="noopener" class="btn btn-sm btn-secondary">Search</a>
+                            </td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p class="text-center">No recipe_ found. Go <a href="/add" >here</a> to add recipe_.</p>
+        <% } %>
+    </div>
+</div>
+</body>
+</html>  
